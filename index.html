@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="assets/css/style.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+     <title>teste</title>
+</head>
+<body>
+
+    
+
+ 
+    <div class="container mt-5 mb-5 d-flex justify-content-center">
+        <div class="card px-1 py-4">
+            <div class="card-body">
+                <h6 class="card-title mb-3">Prova SW</h6>
+                
+                <div class="d-flex flex-row"> 
+                    <label class="radio mr-1">                    
+                      <span id="add_contato"> 
+                          <i class="fa fa-user"></i>
+                          Add Contato 
+                      </span>
+                    </label>
+                    
+                    <label class="radio" id="add_empresa"> 
+                        <span>
+                            <i class="fa fa-plus-circle"></i> Add Empresa 
+                        </span>
+                    </label> 
+                </div>
+
+               
+                <h6 class="information mt-4">Cadastrar Contato</h6>
+               
+            <div class="container" id="contato" style="display: hidden;">
+
+                <form action="" id="form_contato">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input class="form-control" type="hidden" name="id" id="id" placeholder="id"> 
+                            <input class="form-control" type="text" name="name" id="nome" placeholder="Nome" value="roger"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="text" name="lastname"  id="lastname"  placeholder="Sobre Nome" value="silva">
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="date" name="data_nascimento"  id="data_nascimento"  placeholder="Data Nascimento" value="2020-10-10"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="text" name="telefone" id="telefone"  placeholder="Telefone" value="21 990271287"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="text" name="celular" id="celular"  placeholder="celular"  value="21 990271287"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="email" name="email"  id="email" placeholder="email"  value="rg@123.com"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> 
+                    <button class="btn btn-primary btn-block confirm-button save_contato update_contato">Enviar</button>
+                </div>
+            </form>
+            </div>
+
+
+
+            <div class="container" id="empresa">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome"> 
+                        </div>
+                    </div>
+                </div>                
+
+                <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> 
+                    <button class="btn btn-primary btn-block save_empresa update_empresa">Salvar Empresa</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+
+    <div class="container">
+        <table class="table" id="table-contato">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">SobreNome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Ações</th>
+            </tr>
+            </thead>
+            <tbody id="dados-contato">
+          
+            </tbody>
+        </table>
+
+
+        <table class="table" id="table-empresa">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">ações</th>           
+            </tr>
+            </thead>
+            <tbody id="dados-empresa">
+          
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+
+
+    
+   
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+     <script>
+        const add_contato  = document.querySelector('#add_contato');
+        const add_empresa  = document.querySelector('#add_empresa');
+        const contato_form = document.querySelector('#contato');
+        const empresa_form = document.querySelector('#empresa');  
+        const save_contato = document.querySelector('.save_contato');  
+            
+        const payload = {
+            nome:'roger 12',
+            sobreNome:'Ribas',
+            data_nascimento:'14/12/87',
+            telefone:'21 98989999',
+            celular:'21 99009090',
+            email:'rgyr222@123.com'
+
+        } 
+        empresa_form.style.display = "none";
+        $('#table-empresa').hide();  
+
+        add_contato.addEventListener('click',()=> {
+                contato_form.style.display = "block";
+                empresa_form.style.display = "none";
+                $('#table-empresa').hide();            
+                $('#table-contato').show();  
+                location.reload()                  
+            });
+
+             add_empresa.addEventListener('click',()=>{
+                empresa_form.style.display = "block";
+                contato_form.style.display = "none";
+                $('#table-empresa').show();
+                $('#table-contato').hide();
+              
+                getCompany() 
+                   
+             });
+
+             $(document).on("click", ".editar_company", function(evt){
+                    $('.update_empresa').removeClass('save_empresa')
+                    let id = $(this).data('id');
+                    $.get("app/empresa.php?show="+id, function(data, status){
+                    let empresa = JSON.parse(data)    
+                    console.log(empresa)             
+                    let id_empresa =  $('#id').val(id);                                  
+                    let nome =  $('#nome_empresa').val(empresa[0].nome)         
+                });
+
+                });
+                $(document).on("click", ".update_empresa", function(evt){
+                    evt.preventDefault();
+                    let nome = $('#nome_empresa').val() 
+                                        
+                        $.ajax({
+                            url: "app/empresa.php",
+                            type: "POST",
+                            data:{id:$('#id').val(), nome:nome}
+                        });
+                 
+                    getCompany()
+                    });
+
+
+                $(document).on("click", ".save_empresa", function(evt){
+                evt.preventDefault();        
+                    let nome = $('#nome_empresa').val()               
+
+                    $.ajax({
+                        url: "app/empresa.php",
+                        type: "post",
+                        data:{nome:nome}
+                    });
+                    getCompany()
+                })
+
+                $(document).on("click", ".delete_company", function(evt){
+                    let id =  $(this).data('id');
+                    $.ajax({
+                        url: "app/empresa.php?id="+id,
+                        type: "GET"              
+                    });
+                    getCompany()
+                })
+
+                
+                $(document).on("click", ".save_contato", function(evt){
+                    evt.preventDefault();  
+                    
+                    let nome = $('#nome').val() 
+                    let sobrenome = $('#lastname').val()
+                    let data_nascimento = $('#data_nascimento').val()
+                    let telefone = $('#telefone').val()
+                    let celular = $('#celular').val()
+                    let email  = $('#email').val()
+
+                    $.ajax({
+                        url: "app/contato.php",
+                        type: "post",
+                        data:{nome:nome, sobrenome:sobrenome, data_nascimento:data_nascimento,telefone:telefone,celular:celular,email:email}
+                    });
+                    getContacts();
+                })
+           
+
+                $(document).on("click", ".delete_contato", function(evt){
+                    let id =  $(this).data('id');
+                    $.ajax({
+                        url: "app/contato.php?id="+id,
+                        type: "GET"              
+                    });             
+                    getContacts();
+                })
+
+            
+
+
+                $(document).on("click", ".editar_contato", function(evt){
+                    $('.update_contato').removeClass('save_contato')
+                    let id = $(this).data('id');
+                    $.get("app/contato.php?show="+id, function(data, status){
+                    let contact = JSON.parse(data)                 
+                    let id_contact =  $('#id').val(id); 
+                                 
+                    let nome =  $('#nome').val(contact[0].nome)
+                    let sobrenome =  $('#lastname').val(contact[0].sobreNome)
+                    let data_nascimento = $('#data_nascimento').val(contact[0].data_nascimento)
+                    let telefone = $('#telefone').val(contact[0].telefone)
+                    let celular =   $('#celular').val(contact[0].celular)
+                    let email  =   $('#email').val(contact[0].email)
+                 
+                    
+                 
+                });
+
+                $(document).on("click", ".update_contato", function(evt){
+                        evt.preventDefault();
+
+                    let nome = $('#nome').val() 
+                    let sobrenome = $('#lastname').val()
+                    let data_nascimento = $('#data_nascimento').val()
+                    let telefone = $('#telefone').val()
+                    let celular = $('#celular').val()
+                    let email  = $('#email').val()
+                       
+                        $.ajax({
+                        url: "app/contato.php",
+                        type: "POST",
+                        data:{id:$('#id').val(), nome:nome, sobrenome:sobrenome, data_nascimento:data_nascimento,telefone:telefone,celular:celular,email:email}
+                    });
+                    getContacts()
+                    
+                    });
+           
+         
+        });     
+            ///methods
+        function getContacts(){
+            
+            $('#dados-contato').html('');
+            $.get("app/contato.php", function(data, status){
+                 let contacts = JSON.parse(data)    
+                let string = [];
+                try {                    
+              
+                 for(x=0; x<=contacts.length; x++)
+                 {
+                     string = `<tr>
+                                    <td>${contacts[x].id}</td>
+                                    <td>${contacts[x].nome}</td>
+                                    <td>${contacts[x].sobreNome}</td>
+                                    <td>${contacts[x].email}</td>
+                                    <td>
+                                    <button class="btn btn-danger delete_contato" data-id="${contacts[x].id}">Delete</button>
+                                    <button class="btn btn-info editar_contato" data-id="${contacts[x].id}">Editar</button>
+                                    </td>
+                               </tr>`;
+                    $('#dados-contato').append(string);
+                                       
+                 }
+                } catch (error) {
+                    
+                }
+            });
+           
+         
+        }
+
+        function getCompany(){
+            $('#dados-empresa').html('');
+            $.get("app/empresa.php", function(data, status){
+                 let empresa = JSON.parse(data)    
+                let string = [];
+                try {                    
+              
+                 for(x=0; x<=empresa.length; x++)
+                 {
+                     string = `<tr>
+                                    <td>${empresa[x].id}</td>
+                                    <td>${empresa[x].nome}</td>                                 
+                                    <td>
+                                    <button class="btn btn-danger delete_company" data-id="${empresa[x].id}">Delete</button>
+                                    <button class="btn btn-info editar_company" data-id="${empresa[x].id}">Editar</button>
+                                    </td>
+                               </tr>`;
+                    $('#dados-empresa').append(string);
+                                       
+                 }
+                } catch (error) {
+                    
+                }
+            });
+           
+         
+        }
+        getContacts()
+     
+
+
+    
+        
+          
+     </script>
+    </body>
+</html>

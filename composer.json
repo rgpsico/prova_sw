@@ -1,0 +1,24 @@
+{
+    "name": "prova/02",
+    "description": "teste para empresa sw sistemas",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Models\\":"app/model"
+          
+        },
+    "files":
+        [            
+            "app/config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "rgpsico",
+            "email": "gerro121@hotmail.com"
+        }
+    ],
+    "require": {
+       
+    }
+}
